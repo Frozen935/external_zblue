@@ -292,7 +292,7 @@ int main(int argc, char *argv[])
 	char* _argv[32];
 	char* buffer = NULL;
 	char* saveptr;
-	int ret = 0;
+	int ret;
 	size_t len, size = 0;
 
 	z_sys_init();

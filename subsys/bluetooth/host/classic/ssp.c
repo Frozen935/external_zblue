@@ -74,8 +74,7 @@ static int pin_code_reply(struct bt_conn *conn, const char *pin, uint8_t len)
 
 	bt_addr_copy(&cp->bdaddr, &conn->br.dst);
 	cp->pin_len = len;
-	memset(cp->pin_code, 0, sizeof(cp->pin_code));
-	memcpy((char *)cp->pin_code, pin, sizeof(cp->pin_code));
+	strncpy((char *)cp->pin_code, pin, sizeof(cp->pin_code));
 
 	return bt_hci_cmd_send_sync(BT_HCI_OP_PIN_CODE_REPLY, buf, NULL);
 }
